@@ -2,9 +2,14 @@
 17-09-2025
 
 ## Coordenadas Homogéneas
-Inicialmente, los vectores que conciernes al plano en $R^2$ son aquellos de la forma $\begin{align}\vec{v} & =\begin{bmatrix} x \\ y\end{bmatrix} \end{align}$ Sin embargo con el objetivo de realizar transformaciones, se requiere de una componente adicional $w$ en el vector, es decir, se requieren vectores en $R^3$ y matrices en $R^3 \times R^3$ (caso 2D).    
+Inicialmente, los vectores que conciernes al plano en $R^2$ son aquellos de la forma 
 
-Estas transformaciones se realizan por medio de _Matrices de Tranformación_ las cuales otorgan _Transformaciones no Líneales_, alscuales incluyen a las _Tranformaciones Afínes_ y _Transformaciones Projectivas_ ampliamente utilizadas en entornos de computación gráfica.  
+$$\begin{align} \vec{v} &= \begin{bmatrix} x \\ y \end{bmatrix} \end{align}$$
+
+
+Sin embargo con el objetivo de realizar transformaciones, se requiere de una componente adicional $w$ en el vector, es decir, se requieren vectores en $R^3$ y matrices en $R^3 \times R^3$ (caso 2D).    
+
+Estas transformaciones se realizan por medio de _Matrices de Tranformación_ las cuales otorgan _Transformaciones no Líneales_, las cuales incluyen las _Tranformaciones Afínes_ y _Transformaciones Projectivas_ ampliamente utilizadas en entornos de computación gráfica.  
 
 Las transformaciones aquí consideradas corresponden a _Escalado_, _Rotación_, y _Traslación_.
 ## Escalado (Scale)
@@ -26,7 +31,10 @@ def scale(verts, sx, sy):
 
     return sc_verts[:2, :]
 ```
-La matríz de escalado transforma las componentes $x, y$ de un conjunto de vértices en coordenadas homogéneas ordenados en columna al aplicar la transformación dada por la matriz.$$\begin{pmatrix}
+La matriz de escalado transforma las componentes $x, y$ de un conjunto de vértices en coordenadas homogéneas ordenados en columna al aplicar la transformación dada por la matriz.
+
+
+$$\begin{pmatrix}
 sx & 0 & 0\\
 0 & sy & 0\\
 0 & 0 & 1
@@ -39,6 +47,8 @@ sx \cdot x_1 \\
 sy \cdot y_1 \\
 1 
 \end{bmatrix}$$ 
+
+
 Esto implica que para puntos $[2, 3]$ y escalares $sx = 2$ y $sy = 4$, al aplicar la transformación sus componentes serán [4, 12].
 
 ## Rotación (Rotation)
@@ -62,6 +72,7 @@ def rotate(verts, th):
     return rot_verts[:2, :]
 ```
 La matríz de rotación transforma las componentes $x, y$ de un vector realizando una rotación de los puntos alrededor del _punto de orígen_ a un ángulo $\theta$. 
+
  
 $$\begin{pmatrix}
 cos(\theta) & -sin(\theta) & 0\\
@@ -77,7 +88,8 @@ x \cdot sin(\theta) + y \cdot cos(\theta) \\
 1 
 \end{bmatrix}$$
 
-Si se representara un vector en _coordenadas polares_, notese la matríz de rotación corresponde a la suma de los ángulos $\theta + \gamma$ donde $\gamma$ es el ángulo al cual se encontraba el vector respecto a la horizontal, eje $x$, y $\theta$ es el ángulo de rotación de la transformación. 
+
+Si se representara un vector en _coordenadas polares_, notese la matriz de rotación corresponde a la suma de los ángulos $\theta + \gamma$ donde $\gamma$ es el ángulo al cual se encontraba el vector respecto a la horizontal, eje $x$, y $\theta$ es el ángulo de rotación de la transformación. 
 
 $x = r\cdot cos(\gamma)$,  $y = r \cdot sin(\gamma)$:
 
@@ -94,6 +106,7 @@ r\cdot cos(\gamma) \cdot cos(\theta) - r \cdot sin(\gamma) \cdot sin(\theta) \\
 r \cdot cos(\gamma) \cdot sin(\theta) + r \cdot sin(\gamma) \cdot cos(\theta) \\
 1 
 \end{bmatrix}$$
+
 $$
 \begin{bmatrix}
 r \cdot cos(\gamma + \theta) \\
@@ -119,7 +132,9 @@ def translate(verts, tx, ty):
     
     return tr_verts[:2, :]
 ```
-La matriz de traslación transforma las componentes de un vector aplciando una _traslación_ (desplazamiento) de los mismos, es decir, un offset respecto a la posición original.
+La matriz de traslación transforma las componentes de un vector aplicando una _traslación_ (desplazamiento) de los mismos, es decir, un offset respecto a la posición original.
+
+
 $$\begin{pmatrix}
 1 & 0 & tx\\
 0 & 1 & ty\\
@@ -135,7 +150,8 @@ y_1  + ty\\
 \end{bmatrix}
 $$
 
-En donde la nueva posición est+a dada por $x^{'} = x + tx$, $y^{'} = y + ty$ y $w^{'} = w = 1$
+
+En donde la nueva posición está dada por $x^{'} = x + tx$, $y^{'} = y + ty$ y $w^{'} = w = 1$
 
 # Transformación general TRS
 ![Translation](res/2D_TRS_Transformation.gif)
