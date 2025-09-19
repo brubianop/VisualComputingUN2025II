@@ -45,7 +45,7 @@ void setup() {
 
 El único elemento en escena es un cubo. A este, se le aplican las transformaciones fundamentales en función del tiempo, en milisegundos, transcurrido desde el inicio de la escena.
 
-El código se divide, principalmente, en 2 secciones fundamentales en donde la lógica de ejeción principalmente reside. Estas corresponden a las funciones:
+El código se divide, principalmente, en 2 secciones fundamentales en donde la lógica de ejecución principalmente reside. Estas corresponden a las funciones:
 - setup
 - draw
 
