@@ -28,6 +28,18 @@ venv.bak/
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+MemoryCaptures/
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.user
 
 #IDErltd
 
