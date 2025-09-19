@@ -117,7 +117,7 @@ void draw() {
 ```
 ### Resultados Visuales
 
-![Rotation](/processing/res/Processing_Test_Cube.gif)
+![Rotation](./processing/res/Processing_Test_Cube.gif)
 
 ## Python
 ### Preliminares
@@ -179,16 +179,16 @@ rot_demo_ani.save("../res/2D_Rotation_Transformation.gif", writer = "pillow", fp
 ### Resultados Visuales
 
 #### Traslación
-![Rotation](/python/res/2D_Translation_Transformation.gif)
+![Rotation](./python/res/2D_Translation_Transformation.gif)
 
 #### Rotación
-![Rotation](/python/res/2D_Rotation_Transformation.gif)
+![Rotation](./python/res/2D_Rotation_Transformation.gif)
 
 #### Escalado
-![Rotation](/python/res/2D_Scale_Transformation.gif)
+![Rotation](./python/res/2D_Scale_Transformation.gif)
 
 ### TRS (General)
-![Rotation](/python/res/2D_TRS_Transformation.gif)
+![Rotation](./python/res/2D_TRS_Transformation.gif)
 
 
 ## Threejs
@@ -243,7 +243,7 @@ function CubeTRSTransformation() {
 ```
 ### Resultados Visuales
 
-![Rotation](/threejs/res/Threejs_Test_Cube.gif)
+![Rotation](./threejs/res/Threejs_Test_Cube.gif)
 
 ## Unity
 ### Preliminares
@@ -287,7 +287,7 @@ void Update()
 ```
 ### Resultados Visuales
 
-![Rotation](/unity/res/Unity_Test_Cube.gif)
+![Rotation](./unity/res/Unity_Test_Cube.gif)
 
 ## Reflexión Final
 Los entornos de computación gráfica proveen abstracciones las cuales permiten la manipulación de gráficos por computadora. Esto se realiza por medio de primitivas (triángulos) las cuales permiten construir objetos más complejos y en dimensiones más altas (3D).
