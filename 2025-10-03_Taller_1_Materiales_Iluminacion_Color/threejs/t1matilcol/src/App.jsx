@@ -1,7 +1,54 @@
 import { Suspense, useCallback, useRef, useState, useEffect, useLayoutEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Environment, useAnimations, useGLTF, useTexture, CubeCamera, RenderTexture } from '@react-three/drei';
+import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter'; //EXPORT CRAP
 import * as THREE from 'three';
+
+//------------------------------- EXPORT CRAP --------------------------------------//
+
+function downloadBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+//DEFAULT SAVE IN DOWNLOADS.
+function SceneExport() {
+  const { scene } = useThree();
+  const [exported, setExported] = useState(false);
+
+  useEffect(() => {
+    if (exported) return;
+    
+    if (!scene) return;
+    
+    const exporter = new GLTFExporter();
+    
+    //GLB
+    const options = {
+      binary: true, 
+      onlyVisible: true, 
+    };
+
+    exporter.parse(
+      scene,
+      (gltf) => {
+        const blob = new Blob([gltf], { type: "application/octet-stream" });
+        downloadBlob(blob, "long_night_of_solace_tribute.glb");
+        setExported(true);
+      },
+      (error) => {
+        setExported(true);
+      },
+      options
+    );
+  }, [scene, exported]);
+
+  return null;
+}
 
 //-------------------------------- PRESETS ---------------------------------------//
 
@@ -206,6 +253,8 @@ function Cube () {
       <boxGeometry args={[20, 20, 20]} />
       <meshStandardMaterial 
         {...textures}
+        metalness = {0.3}
+        roughness = {0.2}
       />
     </mesh>
 
@@ -558,29 +607,30 @@ function Scene () {
     <>
 
       <ambientLight
-        intensity = {0.1}
+        intensity = {0.05}
       />
 
       <Environment 
         preset = "night"
-        intensity = {0.2} 
-        background = {false} 
+        intensity = {0.1} 
+        background = {true} 
       />
 
       {/*KEY LIGHT. i.e. HIGH INTENSITY. Enhances shadows.*/} 
       <directionalLight 
         position = {[150, 250, 150]} 
         intensity = {3.5} 
-        color = {"#FFFFFF"} 
+        color = {"#F0F8FF"} 
         castShadow
 
         //Light Frustum
         shadow-camera-near = {1} 
         shadow-camera-far = {300} 
-        shadow-camera-left = {-280}  
-        shadow-camera-right = {280} 
+
         shadow-camera-top = {200} 
-        shadow-camera-bottom = {-200} 
+        shadow-camera-bottom = {-200}
+        shadow-camera-left = {-120}  
+        shadow-camera-right = {120}  
 
         //ShadowMap res
         shadow-mapSize-width = {2048}
@@ -589,18 +639,18 @@ function Scene () {
         shadow-bias = {-0.0005}
       />
 
-      {/*FILL LIGHT. i.e. LOW INTENSITY. Softens.*/} 
+      {/*FILL LIGHT. i.e. LOW INTENSITY. Softens. Opposite to Key.*/} 
       <directionalLight 
-        position = {[-50, 20, 50]} 
+        position = {[-100, 50, 200]} 
         intensity = {0.8} 
-        color = {"#ADD8E6"} 
+        color = {"#87CEEB"} 
       />
 
-      {/*RIM LIGHT. Object specific. Edges enhancing.*/} 
+      {/*RIM LIGHT. Object specific. CUBE Edges enhancing. Above.*/} 
       <pointLight 
-        position = {[-50, 50, -50]} 
-        intensity = {1.2} 
-        color = {"#FFFDD0"} 
+        position = {[170, 60, 80]} 
+        intensity = {5} 
+        color = {"#FFC700"} 
       />
 
       <Ground />
@@ -612,6 +662,9 @@ function Scene () {
       <PropObject />
 
       <CamHandler cams = {SCENE_CAMS} />
+
+      {/*Export GLB to Downloads folder*/}
+      <SceneExport />
     </>
   );
 
