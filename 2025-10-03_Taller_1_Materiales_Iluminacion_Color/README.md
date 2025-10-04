@@ -526,7 +526,7 @@ La esfera de la escena cuenta con un `script` el cual permite que esta rote alre
 ![image](./renders/images/orthographic_scene_4.png)
 ![image](./renders/images/orthographic_scene_5.png)
 ![image](./renders/images/orthographic_scene_6.png)
-![image].(/renders/images/orthographic_scene_7.png)
+![image](./renders/images/orthographic_scene_7.png)
 ![image](./renders/images/orthographic_scene_8.png)
 ![image](./renders/images/orthographic_scene_9.png)
 
