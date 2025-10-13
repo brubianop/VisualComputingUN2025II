@@ -12,6 +12,11 @@
 ├── python/                
     ├── kinematics/         #Python src code. Forward and Inverse Kinematics.
     ├── res/                #Generated GIFs for Leg and Crane Animation.
+├── unity/
+    ├── P3AniDemo/          #Folder with Unity Scene objects and structure
+        ├── Assets/
+           ├── FBXFiles/    #3D Objects (Slime).
+           ├── Animations/  #.anim files. 
 ├── README.md               
 ```
 
@@ -123,3 +128,34 @@ $$\theta_1 = \arctan2{\left(\frac{y_f}{x_f}\right)} - \arccos{\left(\frac{r^{2} 
 Conociendo los ángulos necesarios para dicho punto, se suma el hecho de que, desde el inicio, se conocen $L_1$ y $L_2$. Se sigue que al aplicar Forward Kinematics, dado se conocen los parámetros, es posible reconstruir la trayectoria de los puntos en el sistema.  
 
 FIN.
+
+## Animación - Slime & Unity Animator
+![image](./assets/P3SlimeAnime.gif)
+
+### Implementación
+Animación corta en Unity tomando como referencia la naturaleza "elástica" de los Slime en el videojuego **Minecraft**, desarrollado por **Mojang Studios** y lanzado en 2009.
+
+Una de las ventajas de este tipo de entidad es su naturaleza morfológica y como es posible el generar deformaciones "exageradas" las cuales le otorgan personalidad al mismo.
+
+El desarrollo de la actividad se realizó bajo el entorno Unity, haciendo uso de las opciones de Animación y configurando la escena por frames. La interpolación entre frames es realizada de manera interna por el entorno de Unity.
+
+![image](./assets/SlimeEntity.png)   
+
+Autor: [Vincent Yanez](https://sketchfab.com/vinceyanez)  
+Link: [Sketchfab/Slime](https://sketchfab.com/3d-models/minecraft-slime-2caaa14e52da4693a60889b189c445a5)
+
+Haciendo uso de los principios de la animación, se tuvieron en cuenta 3.
+
+#### Squash and Stretch
+En cada uno de los saltos y durante el vuelo en el mismo, la morfología del personaje cambia drásticamente otorgando la sensación de elasticidad y, más importante, de objeto no sólido en su totalidad.
+
+#### Slow In and Slow Out
+Luego de cada preparación, anticipación al salto, el personaje sale despedido a gran velocidad en comparación a la presente al inicio del salto. Esto genera una sensación de alta velocidad y, de alguna forma, de movimiento natural a diferencia de una velocidad constante y, por ende, carente de aceleración.
+
+#### Exageración
+La naturaleza del Slime permite que se pueda jugar con las proporciones de la misma. Si las deformaciones se realizaran de manera controlada, no se tendría la sensación de que se trata de una entidad elástica y casi líquida. Sin embargo, este apartado otorga cierta personalidad a la entidad y, de alguna forma, un alivio cómico a la escena.
+
+FIN.
+
+EZ.
+
