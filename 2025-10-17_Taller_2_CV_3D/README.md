@@ -207,7 +207,7 @@ target[:, :, 2] = 63
 ### Resultados
 #### Original Image
 ![image](./assets/04/MGS_IV_src.jpg)
-#### Origianl & Modified Image Comparison
+#### Original & Modified Image Comparison
 ![image](./assets/04/gen/mods_comparison.png)
 #### Original & Modified Image Histograms Comparison
 ![image](./assets/04/gen/histograms_comparison.png)
