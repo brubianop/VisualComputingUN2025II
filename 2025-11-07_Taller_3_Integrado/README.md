@@ -24,7 +24,7 @@ Este documento describe la implementación de técnicas de gráficos por computa
 
 ![Procedural Wave](./renders/T3_ProceduralWave_Perspective.png)
 
-![Procedural Wave](./renders/T3_ProceduralWave_oRTHOGRAPHIC.png)
+![Procedural Wave](./renders/T3_ProceduralWave_Orthographic.png)
 
 ---
 
