@@ -15,7 +15,7 @@
 
 #### Implementación: Brayan Rubiano
 
-## IMPORANTE: [Enlace Repositorio Taller Grupal Completo:](https://github.com/miamartinezfe/visual-computing-project/tree/main/2025-12-02_taller_4) 
+## IMPORTANTE: [Enlace Repositorio Taller Grupal Completo:](https://github.com/miamartinezfe/visual-computing-project/tree/main/2025-12-02_taller_4) 
 
 **Implementación Subsistema 5**: Entrenamiento y Comparación de Modelos (`CNN` + `Fine-Tuning`). El objetivo principal es demostrar la eficacia del Transfer Learning mediante la comparación rigurosa de dos enfoques de entrenamiento distintos para una tarea de `clasificación de imágenes`.
 
