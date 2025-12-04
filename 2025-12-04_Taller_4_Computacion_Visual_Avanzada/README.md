@@ -5,7 +5,7 @@
 ## Estructura
 
 ```
-2025-11-07_Taller_4_Computacion_Visual_Avanzada/
+2025-12-04_Taller_4_Computacion_Visual_Avanzada/
 ├── python/
     ├──src/
         ├──CNN_brubianop.ipynb  #Jupyter Notebook Implementation
